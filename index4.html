@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GillMac Plumbing — Reliable Plumbing Services</title>
+  <style>
+    :root{
+      --primary:#0B6E4F;
+      --accent:#07A6A6;
+      --light:#f5f9f8;
+      --dark:#0f172a;
+      --muted:#6B7280;
+      --radius:14px;        
+      --shadow:0 6px 20px rgba(0,0,0,0.08);
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;color:var(--dark);background:var(--light);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+
+    /* Navbar */
+    header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:1000}
+    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px}
+    .nav .logo{font-weight:700;color:var(--primary);font-size:20px}
+    nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;position:relative;padding:4px 0}
+    nav a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:0.3s}
+    nav a:hover::after{width:100%}
+
+    /* Hero */
+    .hero{position:relative;height:80vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;overflow:hidden}
+    .hero img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;filter:brightness(0.55)}
+    .hero .content{max-width:800px;padding:20px}
+    .hero h1{font-size:clamp(28px,5vw,52px);margin:0 0 20px}
+    .hero p{font-size:18px;margin-bottom:24px}
+    .hero .btn{background:var(--primary);color:#fff;padding:14px 24px;border-radius:var(--radius);margin:0 8px;display:inline-block}
+    .hero .btn:hover{background:var(--accent)}
+
+    /* Sections */
+    section{max-width:1200px;margin:80px auto;padding:0 20px}
+    section h2{text-align:center;font-size:32px;margin-bottom:40px;color:var(--primary)}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+    .about img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .service{background:#fff;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center}
+    .service:hover{transform:translateY(-6px)}
+    .service img{height:80px;margin-bottom:12px}
+
+    /* Team */
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;text-align:center}
+    .member{background:#fff;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .member img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .gallery img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);height:200px;object-fit:cover}
+    .gallery img:hover{transform:scale(1.03)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    form{background:#fff;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    label{display:block;margin-top:12px;font-size:14px}
+    input,textarea,select{width:100%;padding:12px;margin-top:6px;border:1px solid #ccc;border-radius:8px}
+    button{background:var(--primary);color:#fff;padding:12px 18px;border:0;border-radius:8px;margin-top:14px;cursor:pointer}
+    button:hover{background:var(--accent)}
+    .map iframe{width:100%;height:100%;border:0;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* Footer */
+    footer{background:#0B6E4F;color:#fff;text-align:center;padding:30px;margin-top:60px}
+
+    /* Floating Callback Button */
+    .callback-btn{position:fixed;bottom:20px;right:20px;background:var(--accent);color:#fff;padding:16px 22px;border-radius:999px;box-shadow:var(--shadow);font-weight:600;cursor:pointer;z-index:2000}
+    .callback-btn:hover{background:var(--primary)}
+
+    @media(max-width:768px){
+      .about{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">GillMac Plumbing</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" alt="Plumber at work">
+    <div class="content">
+      <h1>Reliable Plumbing Services 24/7</h1>
+      <p>Your trusted partner for leaks, installations, and emergency repairs.</p>
+      <a href="#contact" class="btn">Request a Quote</a>
+      <a href="tel:+27607000902" class="btn">Call Now</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <img src="ChatGPT Image Sep 13, 2025, 07_41_10 PM.png" alt="About Plumbing">
+      <div>
+        <p>Established in 2011 in Port Elizabeth (now Gqeberha), Eastern Cape, Gillmac Industrial & Commercial Systems has built a strong reputation in the industrial and commercial sector. The company started by collaborating on public sector projects, primarily within municipalities, where it developed a solid foundation of expertise and reliability.
+
+        <br> <br>Today, Gillmac operates as an independent contractor, delivering professional, high-quality solutions to clients while continuing to expand its capabilities and service offering</p>
+        <ul>
+          <li>Licensed and insured plumbers</li>
+          <li>Transparent pricing</li>
+          <li>Emergency response 24/7</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/water.png"><h4>Emergency Plumbing</h4><p>24/7 quick response for burst pipes, leaks and urgent issues.</p></div>
+      <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/toilet-bowl.png"><h4>Drain Cleaning</h4><p>High-pressure jetting and clearing of blocked drains.</p></div>
+     <div class="service">
+  <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="14" y="10" width="36" height="44" rx="4" stroke="#0B6E4F" stroke-width="4"/>
+    <circle cx="32" cy="32" r="6" stroke="#0B6E4F" stroke-width="4"/>
+    <line x1="32" y1="20" x2="32" y2="44" stroke="#0B6E4F" stroke-width="4"/>
+  </svg>
+  <h4>Geyser & Boiler</h4>
+  <p>Installation and repair of hot water systems.</p>
+</div>
+
+      <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/bath.png"><h4>Bathroom Renovations</h4><p>Complete bathroom fitting and renovation.</p></div>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team">
+      <div class="member"><img src="Screenshot_20201231-235521.jpg"><h4>Gillespie Gwanzura</h4><p>Lead Plumber</p></div>
+      <div class="member"><img src="20240912_155923.jpg"><h4>Desire Gwanzura</h4><p>Lead Developer</p></div>
+      <!-- <div class="member"><img src="https://randomuser.me/api/portraits/men/56.jpg"><h4>David Molefe</h4><p>Technician</p></div> -->
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Recent Projects</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1565895405144-0b7b0e8b1c92" alt="Plumbing project">
+      <img src="download (1).jpeg" alt="Bathroom renovation">
+      <img src="download (2).jpeg" alt="Pipe installation">
+      <img src="images.jpeg" alt="Technician working">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <form id="contact-form">
+        <label>Name<input type="text" required></label>
+        <label>Email<input type="email" required></label>
+        <label>Phone<input type="tel" required></label>
+        <label>Service<select><option>Emergency Repair</option><option>Drain Cleaning</option><option>Installation</option></select></label>
+        <label>Message<textarea rows="4" required></textarea></label>
+        <button type="submit">Send Message</button>
+        <div id="cf-msg" style="margin-top:8px;font-size:13px"></div>
+      </form>
+      <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.4619076539866!2d25.5984756!3d-33.8261967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad589434c81c7%3A0x129c89e229b72b50!2s10%20Echola%20St%2C%20Motherwell%205%2C%20Motherwell%2C%206211!5e0!3m2!1sen!2sza!4v1757703291055!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GillMac Plumbing. All rights reserved.</p>
+     <div>
+      <a href="#">Facebook </a>|
+      <a href="#team">Instagram </a> |
+      <a href="#gallery">WhatsApp </a>|
+    </div>
+  </footer>
+
+  <a class="callback-btn"  href="https://wa.me/27607000902" class="btn">💬 WhatsApp</a>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      document.getElementById('cf-msg').innerText = '✅ Thank you! We will get back to you shortly.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
