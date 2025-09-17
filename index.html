@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GillMac Plumbing — Reliable Plumbing Services</title>
+   <link rel="icon" type="image/png" href="ChatGPT Image Sep 13, 2025, 07_41_10 PM.png">
   <style>
    :root {
   --primary:#0B6E4F;
@@ -482,27 +483,30 @@ footer {
   </footer>
 
   <a class="callback-btn" href="https://wa.me/27607000902">💬 WhatsApp</a>
-
-  <!-- ✅ EmailJS Script -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("zvTKFX6D7f7a6yc6f"); // Replace with your EmailJS Public Key
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-
-      emailjs.sendForm("service_pd6yrhr", "template_wykr06t", this)
-      .then(function() {
-        document.getElementById('cf-msg').innerText = '✅ Thank you! Your message has been sent.';
-      }, function(error) {
-        document.getElementById('cf-msg').innerText = '❌ Failed to send message. Please try again.';
-        console.error('EmailJS error:', error);
-      });
-
-      this.reset();
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const data = {
+    name: this.elements['from_name'].value,
+    email: this.elements['reply_to'].value,
+    phone: this.elements['phone'].value,
+    service: this.elements['service'].value,
+    message: this.elements['message'].value
+  };
+  try {
+    const res = await fetch('http://localhost:5000/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
-  </script>
+    const result = await res.json();
+    document.getElementById('cf-msg').innerText = result.message;
+    this.reset();
+  } catch (err) {
+    document.getElementById('cf-msg').innerText = '❌ Failed to send. Try again.';
+    console.error(err);
+  }
+});
+</script>
 </body>
 </html>
