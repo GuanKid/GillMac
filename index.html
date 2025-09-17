@@ -131,16 +131,15 @@
     <div class="services">
       <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/water.png"><h4>Emergency Plumbing</h4><p>24/7 quick response for burst pipes, leaks and urgent issues.</p></div>
       <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/toilet-bowl.png"><h4>Drain Cleaning</h4><p>High-pressure jetting and clearing of blocked drains.</p></div>
-     <div class="service">
-  <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="14" y="10" width="36" height="44" rx="4" stroke="#0B6E4F" stroke-width="4"/>
-    <circle cx="32" cy="32" r="6" stroke="#0B6E4F" stroke-width="4"/>
-    <line x1="32" y1="20" x2="32" y2="44" stroke="#0B6E4F" stroke-width="4"/>
-  </svg>
-  <h4>Geyser & Boiler</h4>
-  <p>Installation and repair of hot water systems.</p>
-</div>
-
+      <div class="service">
+        <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="10" width="36" height="44" rx="4" stroke="#0B6E4F" stroke-width="4"/>
+          <circle cx="32" cy="32" r="6" stroke="#0B6E4F" stroke-width="4"/>
+          <line x1="32" y1="20" x2="32" y2="44" stroke="#0B6E4F" stroke-width="4"/>
+        </svg>
+        <h4>Geyser & Boiler</h4>
+        <p>Installation and repair of hot water systems.</p>
+      </div>
       <div class="service"><img src="https://img.icons8.com/ios-filled/100/0B6E4F/bath.png"><h4>Bathroom Renovations</h4><p>Complete bathroom fitting and renovation.</p></div>
     </div>
   </section>
@@ -148,9 +147,8 @@
   <section id="team">
     <h2>Meet Our Team</h2>
     <div class="team">
-      <div class="member"><img src="Screenshot_20201231-235521.jpg"><h4>Gillespie Gwanzura</h4><p>Lead Plumber</p></div>
-      <div class="member"><img src="20240912_155923.jpg"><h4>Desire Gwanzura</h4><p>Lead Developer</p></div>
-      <!-- <div class="member"><img src="https://randomuser.me/api/portraits/men/56.jpg"><h4>David Molefe</h4><p>Technician</p></div> -->
+      <div class="member"><img src="Screenshot_20201231-235521.jpg" alt="Lead Plumber"><h4>Gillespie Gwanzura</h4><p>Lead Plumber</p></div>
+      <div class="member"><img src="20240912_155923.jpg" alt="Lead Developer"><h4>Desire Gwanzura</h4><p>Lead Developer</p></div>
     </div>
   </section>
 
@@ -168,11 +166,11 @@
     <h2>Contact Us</h2>
     <div class="contact-grid">
       <form id="contact-form">
-        <label>Name<input type="text" required></label>
-        <label>Email<input type="email" required></label>
-        <label>Phone<input type="tel" required></label>
-        <label>Service<select><option>Emergency Repair</option><option>Drain Cleaning</option><option>Installation</option></select></label>
-        <label>Message<textarea rows="4" required></textarea></label>
+        <label>Name<input type="text" name="from_name" required></label>
+        <label>Email<input type="email" name="reply_to" required></label>
+        <label>Phone<input type="tel" name="phone"></label>
+        <label>Service<select name="service"><option>Emergency Repair</option><option>Drain Cleaning</option><option>Installation</option><option>Maintenance</option></select></label>
+        <label>Message<textarea rows="4" name="message" required></textarea></label>
         <button type="submit">Send Message</button>
         <div id="cf-msg" style="margin-top:8px;font-size:13px"></div>
       </form>
@@ -189,12 +187,26 @@
     </div>
   </footer>
 
-  <a class="callback-btn"  href="https://wa.me/27607000902" class="btn">💬 WhatsApp</a>
+  <a class="callback-btn" href="https://wa.me/27607000902">💬 WhatsApp</a>
 
+  <!-- ✅ EmailJS Script -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit',function(e){
+    (function(){
+      emailjs.init("zvTKFX6D7f7a6yc6f"); // Replace with your EmailJS Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(e){
       e.preventDefault();
-      document.getElementById('cf-msg').innerText = '✅ Thank you! We will get back to you shortly.';
+
+      emailjs.sendForm("service_pd6yrhr", "template_wykr06t", this)
+      .then(function() {
+        document.getElementById('cf-msg').innerText = '✅ Thank you! Your message has been sent.';
+      }, function(error) {
+        document.getElementById('cf-msg').innerText = '❌ Failed to send message. Please try again.';
+        console.error('EmailJS error:', error);
+      });
+
       this.reset();
     });
   </script>
